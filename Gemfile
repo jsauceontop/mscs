@@ -7,14 +7,10 @@ gem 'rails', '3.1.0'
 
 
 
-group :development do
+group :development, :test do
 	gem 'mysql2'
+	gem 'rspec-rails'
 end
-
-group :production do
-	gem 'pg'
-end
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -37,5 +33,10 @@ gem 'jquery-rails'
 
 group :test do
   # Pretty printed test output
+  gem 'capybara'
   gem 'turn', :require => false
+end
+
+group :production do
+	gem 'pg'
 end
