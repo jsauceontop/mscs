@@ -1,2 +1,14 @@
-<h1>Topics#new</h1>
-<p>Find me in app/views/topics/new.html.erb</p>
+<h1>Topics#show</h1>
+
+
+<table>
+	<tr>
+		<th><%= @topic.title %></th>
+	</tr>
+	<tr>
+		<td><%= @topic.description %></td>
+	</tr>
+</table>
+
+<%= link_to("New", :action=> "new") %>
+

@@ -1,5 +1,11 @@
 Mscs::Application.routes.draw do
 
+  get "mentors/new"
+
+  get "mentors/edit"
+
+  get "mentors/show"
+
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:

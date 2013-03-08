@@ -1,2 +1,17 @@
 <h1>Topics#new</h1>
 <p>Find me in app/views/topics/new.html.erb</p>
+
+<%= form_for(:topic, :url => {:action => "new"}) do |f| %>
+<table>
+	<tr>
+		<th>Title</th>
+		<td><%= f.text_field(:title) %></td>
+	</tr>
+	<tr>
+		<th>Description</th>
+		<td><%= f.text_field(:description) %></td>
+	</tr>
+</table>
+<%= submit_tag("Submit Topic") %>
+<% end %>
+

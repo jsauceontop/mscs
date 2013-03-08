@@ -7,7 +7,7 @@
 	</tr>
 	<% @topics.each do |topic| %>
 	<tr>
-		<td><%= topic.title %></td>
+		<td><%= link_to(topic.title, {:action => 'show', :id => topic.id}) %></td>
 	</tr>
 	<% end %>
 </table>

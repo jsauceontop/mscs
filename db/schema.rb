@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307053150) do
+ActiveRecord::Schema.define(:version => 20130308015047) do
+
+  create_table "mentors", :force => true do |t|
+    t.string   "firstname",  :limit => 25,  :null => false
+    t.string   "lastname",   :limit => 25
+    t.string   "profile",    :limit => 100
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mentors_topics", :id => false, :force => true do |t|
+    t.integer "mentor_id"
+    t.integer "topic_id"
+  end
 
   create_table "topics", :force => true do |t|
     t.string   "title",       :limit => 25,  :null => false
