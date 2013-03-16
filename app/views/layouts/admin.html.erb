@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SharePoint Mentors | <%= @page_title %></title>
+  <title>SharePoint Mentors | <%= @page_title || 'Admin Area' %></title>
   <%= stylesheet_link_tag    "application" %>
-  <%= stylesheet_link_tag	"bootstrap" %>
+  <%= stylesheet_link_tag	"bootstrap/bootstrap" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "bootstrap" %>
+  <%= javascript_include_tag "bootstrap/bootstrap" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
