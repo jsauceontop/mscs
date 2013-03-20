@@ -6121,16 +6121,7 @@ a.badge:focus {
           border-radius: 6px;
 }
 
-/*jsaito*/
-.hero-unitSmall {
-  padding: 15px;
-  margin-bottom: 10px;
-  color: inherit;
-  background-color: #eeeeee;
-  -webkit-border-radius: 10px;
-     -moz-border-radius: 10px;
-          border-radius: 10px;
-}
+
 
 .hero-unit h1 {
   margin-bottom: 0;
@@ -6169,6 +6160,16 @@ a.badge:focus {
 }
 
 /*jsaito*/
+.hero-unitSmall {
+  padding: 15px;
+  margin-bottom: 10px;
+  color: inherit;
+  background-color: #eeeeee;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
 .getStarted {
   margin:10px;
 }

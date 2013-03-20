@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SharePoint Mentors | <%= @page_title %></title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= stylesheet_link_tag	"bootstrap" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "bootstrap" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+	  <title>SharePoint Mentors | <%= @page_title %></title>
+	  <%= stylesheet_link_tag	"bootstrap" %>
+	  <%= stylesheet_link_tag    "application" %>
+	  <%= javascript_include_tag "bootstrap" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= render 'layouts/shim' %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div style="margin:10px">
+			<%= yield %>
+			<%= render 'layouts/footer' %>
+		</div>
+	</body>
 </html>

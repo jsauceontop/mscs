@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def about
   end
 
-  def terms
+  def contact
   end
 
 end

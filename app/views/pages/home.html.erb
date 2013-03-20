@@ -1,5 +1,5 @@
 <% @page_title = "Home" %>
-<div style="margin:10px">
+
 <div class="row-fluid">
 	<div class="span7"><h1>SharePoint Mentors</h1></div>
 	<div class="span5" id="login">
@@ -15,10 +15,10 @@
 	<div class="span8">
 
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="#">Home</a></li>
-		<li><a href="#">Mentors</a></li>
-		<li><a href="#">Topics</a></li>
-		<li><a href="#">Blog</a></li>
+		<li class="active"><%= link_to "Home", root_path %></li>
+		<li><%= link_to "Mentors", mentors_path %></li>
+		<li><%= link_to "Topics", topics_path %></li>
+		<li><%= link_to "Blog", blogs_path %></li>
 	</ul>
 
 	</div>
@@ -38,12 +38,12 @@
 	</div>
 	<div class="span4">
 		<div class="hero-unitSmall">
-			<h3 style="margin:0px">Get Started</h3>
+			<h3 style="margin:0px">Get Started Today</h3>
 			<form class="form-horizontal" style="margin:0px;">
 				<input class="getStarted" type="text" id="inputUsername" placeholder="Username" />
 				<input class="getStarted" type="password" id="inputPassword" placeholder="Password" />
 				<input class="getStarted" type="text" id="inputEmail" placeholder="Email" />
-				<button class="getStarted btn-primary btn-medium" type="submit">SIGN UP</button>
+				<button class="getStarted btn-primary btn-medium" type="submit">Create My Account</button>
 			</form>
 		</div>
 
@@ -71,5 +71,4 @@
 				<p>caption</p>
 			</div>
 		</li>
-</div>
 </div>
