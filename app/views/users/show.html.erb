@@ -1,0 +1,17 @@
+
+
+<div class="row">
+	<div class="span4">
+		<%= @user.name %>
+	</div>
+	<div class="span8">
+		<% if @user.blogs.any? %>
+			<h3> Blog Posts (<%= @user.blogs.count %>)</h3>
+			<ol class="blogs">
+				<% @blogs.each do |blog| %>
+					<%= render "blogs/blog", :blog => blog %>
+				<% end %>
+			</ol>
+		<% end %>
+	</div>
+</div>

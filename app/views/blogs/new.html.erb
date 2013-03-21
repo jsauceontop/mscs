@@ -1,0 +1,19 @@
+<% @page_title = "Blogs" %>
+<h1>Blogs#new</h1>
+
+<div class="row">
+	<div class="span8">
+		<%= @user.name %>
+		<p />
+		<% if @user.blogs.any? %>
+			<%= @user.blogs.count %> blog posts
+		<% else %>
+			0 blog posts
+		<% end %>
+		<p />
+		<%= form_for(:blog, :url => {:action => 'create', :id =>'#{user.id}'}) do |f| %>
+		<%= render :partial => "form", :locals => {:f => f} %>
+		<%=submit_tag("Post") %>	
+		<% end %>	
+	</div>
+</div>
