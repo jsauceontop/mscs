@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130323011755) do
+ActiveRecord::Schema.define(:version => 20130323055734) do
 
   create_table "blogs", :force => true do |t|
     t.string   "content"
@@ -22,22 +22,6 @@ ActiveRecord::Schema.define(:version => 20130323011755) do
 
   add_index "blogs", ["user_id", "created_at"], :name => "index_blogs_on_user_id_and_created_at"
 
-  create_table "mentees", :primary_key => "user_id", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "mentors", :primary_key => "user_id", :force => true do |t|
-    t.string   "profile",    :limit => 100
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "mentors_topics", :id => false, :force => true do |t|
-    t.integer "mentor_id"
-    t.integer "topic_id"
-  end
-
   create_table "topics", :force => true do |t|
     t.string   "title",       :limit => 25,  :null => false
     t.string   "description", :limit => 100
@@ -45,14 +29,26 @@ ActiveRecord::Schema.define(:version => 20130323011755) do
     t.datetime "updated_at"
   end
 
+  create_table "topics_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "topic_id"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "subtype",    :null => false
-    t.string   "firstname",  :null => false
-    t.string   "lastname",   :null => false
-    t.string   "username",   :null => false
-    t.string   "email",      :null => false
+    t.string   "firstname",       :null => false
+    t.string   "lastname",        :null => false
+    t.string   "username",        :null => false
+    t.string   "email",           :null => false
+    t.string   "password_digest", :null => false
+    t.string   "relatedMentor"
+    t.boolean  "isMentor"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users_topics", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "topic_id"
   end
 
 end

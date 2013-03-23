@@ -4,7 +4,7 @@ Mscs::Application.routes.draw do
   root :to => 'pages#home'
   match '/about', to: 'pages#about'
   match '/contact', to: 'pages#contact'
-  match '/mentors', to: 'mentors#index'
+  #match '/mentors', to: 'mentors#index'
   match '/topics', to: 'topics#index'
   match '/blogs', to: 'blogs#index'
   match '/signup', to: 'users#new'
