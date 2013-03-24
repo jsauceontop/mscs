@@ -4,6 +4,9 @@ gem 'rails', '3.1.0'
 gem 'bootstrap-sass'
 #gem 'multiple_table_inheritance', '~> 0.2.1'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'faker', '1.0.1' #used to create fake users
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
