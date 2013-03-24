@@ -7,7 +7,10 @@ Mscs::Application.routes.draw do
   #match '/mentors', to: 'mentors#index'
   match '/topics', to: 'topics#index'
   match '/blogs', to: 'blogs#index'
-  match '/users', to: 'users#new'
+  #match '/users', to: 'users#new'
+  match '/signup', to: 'users#new'
+  match '/signin', to: "sessions#new"
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

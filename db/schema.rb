@@ -40,15 +40,11 @@ ActiveRecord::Schema.define(:version => 20130323055734) do
     t.string   "username",        :null => false
     t.string   "email",           :null => false
     t.string   "password_digest", :null => false
+    t.string   "remember_token"
     t.string   "relatedMentor"
     t.boolean  "isMentor"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "users_topics", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "topic_id"
   end
 
 end
