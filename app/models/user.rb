@@ -2,7 +2,7 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
-	attr_accessible :firstname, :lastname, :username, :email, :password, :password_confirmation
+	attr_accessible :firstname, :lastname, :username, :email, :password, :password_confirmation, :relatedMentor, :isMentor
 	has_secure_password
 
 	has_many :blogs, dependent: :destroy

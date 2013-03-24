@@ -1,0 +1,15 @@
+<% @page_title = "List Users" %>
+
+<p>List of all Users</p>
+<table>
+<% @users.each do |user| %>
+<tr>
+	<td><%= user.firstname %></td>
+	<td><%= user.lastname %></td>
+	<td><%= link_to("show", {:action => 'show', :id=>user.id}) %></td>
+	<td><%= link_to("edit", {:action => 'edit', :id=>user.id}) %></td>
+	<td><%= link_to("delete", {:action => 'delete', :id=>user.id}) %></td>
+</tr>
+<% end %>
+</table>
+<%= link_to("new", {:action => 'new'}) %>

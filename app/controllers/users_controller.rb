@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	if @user.save
   		flash[:success] = "Welcome to SharePoint Mentors!"
-  		redirect_to @user
+  		redirect_to(:action => 'list')
   	else
   		render 'new'
   	end
@@ -17,6 +17,10 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	#@blogs = @user.blogs.paginate(page: params[:page])
   	@blogs = @user.blogs
+  end
+
+  def list
+  	@users = User.all
   end
 
 end
