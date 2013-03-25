@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :remember_token
       t.string :relatedMentor
       t.boolean :isMentor
+      t.boolean :admin
       t.timestamps
     end
   end

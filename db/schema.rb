@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130323055734) do
     t.string   "remember_token"
     t.string   "relatedMentor"
     t.boolean  "isMentor"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

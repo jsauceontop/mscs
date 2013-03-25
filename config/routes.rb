@@ -7,8 +7,7 @@ Mscs::Application.routes.draw do
   #match '/mentors', to: 'mentors#index'
   match '/topics', to: 'topics#index'
   match '/blogs', to: 'blogs#index'
-  match '/users', to: 'users#list'
-  #match '/user', to: 'user#show'
+  match '/users', to: 'users#list', :as => :user
   match '/signup', to: 'users#new'
   match '/signin', to: "sessions#new"
   match '/signout', to: 'sessions#destroy', via: :delete

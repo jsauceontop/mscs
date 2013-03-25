@@ -2,7 +2,7 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
-	attr_accessible :firstname, :lastname, :username, :email, :password, :password_confirmation, :relatedMentor, :isMentor
+	attr_accessible :firstname, :lastname, :username, :email, :password, :password_confirmation, :relatedMentor, :isMentor, :admin
 	has_secure_password
 
 	before_save {|user| user.username = username.downcase}
