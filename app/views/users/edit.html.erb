@@ -1,6 +1,5 @@
 <% @page_title = "Edit User" %>
 
-
 <h1>Update your profile</h1>
 
 <div class="row">
@@ -19,6 +18,12 @@
 
       <%= f.label :email %>
       <%= f.text_field :email %>
+
+      <%= f.label :relatedMentor %>
+      <%= f.text_field :relatedMentor %>
+
+      <%= f.label :isMentor %>
+      <%= f.text_field :isMentor %>
 
       <%= f.label :password %>
       <%= f.password_field :password %>
