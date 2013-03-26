@@ -1,16 +1,19 @@
 Mscs::Application.routes.draw do
 
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :blogs, only: [:create, :destroy]
+  resources :users
 
   root :to => 'pages#home'
   match '/about', to: 'pages#about'
   match '/contact', to: 'pages#contact'
-  #match '/mentors', to: 'mentors#index'
-  match '/topics', to: 'topics#index'
-  match '/blogs', to: 'blogs#index'
-  match '/users', to: 'users#list', :as => :user
+
   match '/signup', to: 'users#new'
   match '/signin', to: "sessions#new"
   match '/signout', to: 'sessions#destroy', via: :delete
+
+  match '/topics', to: 'topics#index'
+  match '/blogs', to: 'blogs#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -67,5 +70,5 @@ Mscs::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  match ':controller(/:action(/:id(.:format)))'
+  #match ':controller(/:action(/:id(.:format)))'
 end

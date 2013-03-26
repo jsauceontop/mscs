@@ -1,4 +1,4 @@
-
+<% provide(:title, @user.username) %>
 
 <div class="row">
 	<aside class="span4">
@@ -19,6 +19,7 @@
 					<%= render "blogs/blog", :blog => blog %>
 				<% end %>
 			</ol>
+			<%= will_paginate @blogs %>
 		<% end %>
 	</div>
 </div>

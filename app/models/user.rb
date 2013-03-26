@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	attr_accessible :firstname, :lastname, :username, :email, :password, :password_confirmation, :relatedMentor, :isMentor, :admin
 	has_secure_password
 
-	before_save {|user| user.username = username.downcase}
+	before_save {username.downcase!}
 	before_save :create_remember_token
 
 	has_many :blogs, dependent: :destroy
@@ -19,10 +19,6 @@ class User < ActiveRecord::Base
 	validates :username, presence: true, length: {maximum: 50}, uniqueness: {case_sensitive:false}
 	validates :password, presence: true, length: {minimum: 6}
 	validates :password_confirmation, presence: true
-
-	def self.authenticate(username, password)
-		find_by_username(username).try(:authenticate, password)
-	end
 
 	private
 	def create_remember_token
