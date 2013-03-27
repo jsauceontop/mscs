@@ -15,9 +15,7 @@
 		<% if @user.blogs.any? %>
 			<h3> Blog Posts (<%= @user.blogs.count %>)</h3>
 			<ol class="blogs">
-				<% @blogs.each do |blog| %>
-					<%= render "blogs/blog", :blog => blog %>
-				<% end %>
+				<%= render @blogs %>
 			</ol>
 			<%= will_paginate @blogs %>
 		<% end %>
