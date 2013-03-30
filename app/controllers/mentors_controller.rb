@@ -1,6 +1,6 @@
 class MentorsController < ApplicationController
   def index
-  	@mentors = User.all
+  	@mentors = User.where(:isMentor => true)
   end
 
   def new

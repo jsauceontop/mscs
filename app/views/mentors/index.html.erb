@@ -10,9 +10,7 @@
 		<% @mentors.each do |mentor| %>
 		<tr>
 			<td><%= link_to(mentor.username, {:controller => 'users', :action => 'show', :id => mentor.id}) %></td>
-		</tr>
-		<tr>
-			<td><!-- mentor.location %></td>-->
+			<td><%= mentor.location %></td>
 		</tr>
 		<% end %>
 	</table>
