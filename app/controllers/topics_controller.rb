@@ -7,8 +7,14 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @topic = Topic.new
+  end
+
+  def create
   	@topic = Topic.new(params[:topic])
   	if @topic.save
+      flash[:success] = "Topic Suggested!"
+      #email?
   		redirect_to(:action => "index")
   	else
   		render("new")

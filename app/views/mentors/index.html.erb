@@ -1,0 +1,21 @@
+<% provide(:title, "Mentors") %>
+<h1>Mentors</h1>
+
+<% if @mentors.any? %>
+	<table>
+		<tr>
+			<th>Mentor</th>
+			<th>Location</th>
+		</tr>
+		<% @mentors.each do |mentor| %>
+		<tr>
+			<td><%= link_to(mentor.username, {:controller => 'users', :action => 'show', :id => mentor.id}) %></td>
+		</tr>
+		<tr>
+			<td><!-- mentor.location %></td>-->
+		</tr>
+		<% end %>
+	</table>
+<% end %>
+<p />
+<%= link_to "Become a Mentor!", "/mentors/new", class: "btn btn-primary" %>

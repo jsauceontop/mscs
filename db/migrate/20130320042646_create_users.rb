@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :relatedMentor
       t.boolean :isMentor
       t.boolean :admin
+      t.string :location
       t.timestamps
     end
   end

@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130323055734) do
     t.string   "relatedMentor"
     t.boolean  "isMentor"
     t.boolean  "admin"
+    t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

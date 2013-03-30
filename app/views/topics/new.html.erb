@@ -1,9 +1,8 @@
-<% @page_title = "Topics" %>
+<% provide(:title, "Topics") %>
+<h1>Suggest a new topic</h1>
 
-<h1>Topics#new</h1>
-<p>Find me in app/views/topics/new.html.erb</p>
-
-<%= form_for(:topic, :url => {:action => "new"}) do |f| %>
+<%= form_for(@topic) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
 <table>
 	<tr>
 		<th>Title</th>
@@ -14,6 +13,6 @@
 		<td><%= f.text_field(:description) %></td>
 	</tr>
 </table>
-<%= submit_tag("Submit Topic") %>
+<%= f.submit "Submit Topic Suggestion", class: "btn btn-primary" %>
 <% end %>
 

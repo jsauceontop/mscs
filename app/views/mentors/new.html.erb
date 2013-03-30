@@ -1,0 +1,18 @@
+<% provide(:title, "Mentors") %>
+<h1>Become a Mentor</h1>
+
+<%= form_for(@mentor) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+<table>
+	<tr>
+		<th>Location (state)</th>
+		<td><%= f.text_field(:location) %></td>
+	</tr>
+	<tr>
+		<th>Topics</th>
+		<td><%= f.text_field(:topics) %></td>
+	</tr>
+</table>
+<%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+

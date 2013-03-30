@@ -9,6 +9,7 @@ namespace :db do
       password  = "password"
       relatedMentor = nil
       isMentor = false
+      location = Faker::Address.state
       admin = User.create!(firstname: firstname,
                    lastname: lastname,
                    username: username,

@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
 
   def index
+    @blog = Blog.new
   end
 
   def new
@@ -15,7 +16,7 @@ class BlogsController < ApplicationController
   		redirect_to root_url
   	else
   		@feed_items = []
-      render 'pages/home'
+      render 'index'
   	end
   end
 

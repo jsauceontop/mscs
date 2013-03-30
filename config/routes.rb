@@ -3,6 +3,8 @@ Mscs::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :blogs, only: [:create, :destroy]
   resources :users
+  resources :topics
+  resources :mentors
 
   root :to => 'pages#home'
   match '/about', to: 'pages#about'
@@ -14,6 +16,7 @@ Mscs::Application.routes.draw do
 
   match '/topics', to: 'topics#index'
   match '/blogs', to: 'blogs#index'
+  match '/mentors', to: 'mentors#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

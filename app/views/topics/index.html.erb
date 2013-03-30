@@ -1,14 +1,17 @@
-<% @page_title = "Topics" %>
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
+<% provide(:title, "Topics") %>
+<h1>Topics</h1>
 
-<table>
-	<tr>
-		<th>Title</th>
-	</tr>
-	<% @topics.each do |topic| %>
-	<tr>
-		<td><%= link_to(topic.title, {:action => 'show', :id => topic.id}) %></td>
-	</tr>
-	<% end %>
-</table>
+<% if @topics.any? %>
+	<table>
+		<tr>
+			<th>Title</th>
+		</tr>
+		<% @topics.each do |topic| %>
+		<tr>
+			<td><%= link_to(topic.title, {:action => 'show', :id => topic.id}) %></td>
+		</tr>
+		<% end %>
+	</table>
+<% end %>
+<p />
+<%= link_to "Suggest a new topic!", "/topics/new", class: "btn btn-primary" %>
