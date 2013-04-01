@@ -9,6 +9,13 @@
 				<%= @user.lastname %>
 			</h1>
 			<%= @user.location %>
+			<br />
+			<% if @user.isMentor == true %>
+				Mentor
+				<!--show related topics here -->
+			<% else %>
+				Not a Mentor
+			<% end %>
 		</section>
 	</aside>
 </div>

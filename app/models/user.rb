@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
 	validates :firstname, presence: true, length: {maximum: 50}
 	validates :lastname, presence: true, length: {maximum: 50}
 	validates :username, presence: true, length: {maximum: 50}, uniqueness: {case_sensitive:false}
-	validates :password, presence: true, length: {minimum: 6}
-	validates :password_confirmation, presence: true
+	validates :password, presence: true, length: {minimum: 6}, :on => :create #no pwd validation for updating or creating user
+	validates :password_confirmation, presence: true, :on => :create #no pwd validation for updating or creating user
 
 	def feed
 		Blog.where("user_id=?", id)

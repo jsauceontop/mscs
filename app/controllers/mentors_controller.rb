@@ -21,14 +21,14 @@ class MentorsController < ApplicationController
     # else
     
     @user.location = params[:location]
-    	if @user.save
-    		flash[:success] = "You're now a mentor!"
-    		redirect_to root_url
-    	else
-        @topics = Topic.all
-        render 'new', :error => @user.errors
-    	end
-    #end
+    @user.isMentor = true
+  	if @user.save
+  		flash[:success] = "You're now a mentor!"
+  		redirect_to @user
+  	else
+      @topics = Topic.all
+      render 'new', :error => @user.errors
+  	end
   end
 
   private
