@@ -1,7 +1,8 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-    20.times do |n|
+    #create fake users
+    10.times do |n|
       firstname  = Faker::Name.first_name
       lastname = Faker::Name.last_name
       username = Faker::Internet.user_name
@@ -9,7 +10,7 @@ namespace :db do
       password  = "password"
       relatedMentor = nil
       location = Faker::Address.state
-      admin = User.create!(firstname: firstname,
+      user = User.create!(firstname: firstname,
                    lastname: lastname,
                    username: username,
                    email: email,
@@ -17,13 +18,25 @@ namespace :db do
                    password_confirmation: password,
                    relatedMentor: nil,
                    location: location)
-      admin.toggle!(:admin)
-      admin.toggle!(:isMentor)
+      user.toggle!(:admin)
+      user.toggle!(:isMentor)
     end
-    users = User.all(limit: 6)
+
+    #create fake blogs
+    users = User.all(limit: 5)
     10.times do
       content = Faker::Lorem.sentence(5)
       users.each { |user| user.blogs.create!(content: content)}
     end
+
+    #create fake topics
+    10.times do 
+      title = Faker::Lorem.words(1)
+      description = Faker::Lorem.sentence(1)
+      topic = Topic.create!(
+        title: title,
+        description: description)
+    end
+
   end
 end

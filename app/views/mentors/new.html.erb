@@ -1,18 +1,28 @@
 <% provide(:title, "Mentors") %>
 <h1>Become a Mentor</h1>
 
-<%= form_for(@mentor) do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
+<%= form_tag mentors_path do %>
+<%= render 'shared/error_messages', object: @user %>
 <table>
 	<tr>
-		<th>Location (state)</th>
-		<td><%= f.text_field(:location) %></td>
+		<th>Location</th>
+		<td><%= select_tag :location, options_for_select(us_states) %> </td>
 	</tr>
 	<tr>
 		<th>Topics</th>
-		<td><%= f.text_field(:topics) %></td>
+		<td></td>
+	</tr>
+	<% @topics.each do |t| %>
+	<tr>
+		<td></td>
+		<td><%= check_box_tag "topic_ids[]", t.id, false, :id => "topic_ids_#{t.id}" %><%= t.title %></td>
+	</tr>
+	<% end %>
+	<tr>
+		<th>Password</th>
+		<td><%= password_field_tag :password %></td>
 	</tr>
 </table>
-<%= f.submit "Submit", class: "btn btn-primary" %>
+<%= submit_tag "Submit", class: "btn btn-primary" %>
 <% end %>
 
