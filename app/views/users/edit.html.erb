@@ -8,7 +8,20 @@
     <%= render 'shared/error_messages', object: f.object %>
 
       <%= render :partial => "form", :locals => {:f => f} %>
-
+      <% if @user.isMentor %>
+        <table>
+          <tr><td>Location</td></tr>
+          <tr>
+            <td><%= select_tag :location, options_for_select(us_states) %> </td>
+          </tr>
+          <tr><td>Topics to Mentor:</td></tr>
+           <% for topic in Topic.find(:all) %>
+            <tr><td><%= check_box_tag "user[topic_ids][]", topic.id, @user.topics.include?(topic) %>
+               <%= topic.title %>
+            </td></tr>
+          <% end %>
+        </table>
+      <% end %>
       <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
     <% end %>
 
