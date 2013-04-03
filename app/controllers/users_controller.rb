@@ -29,7 +29,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-  	#@user = User.find(params[:id])
+  	@user = User.find(params[:id])
+
   end
 
   def update
@@ -57,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      #redirect_to(root_path) unless current_user.admin?
   end
 
 end

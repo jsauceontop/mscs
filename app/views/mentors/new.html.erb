@@ -9,10 +9,10 @@
 			<td><%= select_tag :location, options_for_select(us_states) %> </td>
 		</tr>
 		<tr>
-			<th>Topics</th>
+			<th>Topics to Mentor</th>
 			<td></td>
 		</tr>
-		
+
 		<% for topic in Topic.find(:all) %>
 			<tr><td><%= check_box_tag "user[topic_ids][]", topic.id, @user.topics.include?(topic) %>
 				<%= topic.title %>

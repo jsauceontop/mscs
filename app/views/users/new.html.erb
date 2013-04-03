@@ -7,17 +7,7 @@
     <%= form_for(@user, :url => {:action => "create"}) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :firstname %>
-      <%= f.text_field :firstname %>
-
-      <%= f.label :lastname %>
-      <%= f.text_field :lastname %>
-
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= render :partial => "form", :locals => {:f => f} %>
 
       <%= f.label :password %>
       <%= f.password_field :password %>

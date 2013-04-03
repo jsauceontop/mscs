@@ -7,29 +7,7 @@
     <%= form_for(@user, :url => {:action => "update"}) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :firstname %>
-      <%= f.text_field :firstname %>
-
-      <%= f.label :lastname %>
-      <%= f.text_field :lastname %>
-
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :relatedMentor %>
-      <%= f.text_field :relatedMentor %>
-
-      <%= f.label :isMentor %>
-      <%= f.text_field :isMentor %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Password Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <%= render :partial => "form", :locals => {:f => f} %>
 
       <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
     <% end %>
