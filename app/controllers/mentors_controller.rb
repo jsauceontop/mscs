@@ -11,17 +11,14 @@ class MentorsController < ApplicationController
   end
 
   def create
-    @user = current_user
-
-  	#@topics = current_user.topics.build(params[:topics])
-    # if (@user.password != params[:password])
-    #   @topics = Topic.all
-    #   flash[:failure] = "Invalid Password. Try again"
-    #   render 'new', :error => @user.errors
-    # else
-    
+    @user = current_user  
     @user.location = params[:location]
     @user.isMentor = true
+
+    #associate the topics to the mentor
+    @topics = params[:user][:topic_ids] ||= []
+    @user.topic_ids = @topics
+
   	if @user.save
   		flash[:success] = "You're now a mentor!"
   		redirect_to @user

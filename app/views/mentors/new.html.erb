@@ -12,11 +12,11 @@
 			<th>Topics</th>
 			<td></td>
 		</tr>
-		<% @topics.each do |t| %>
-		<tr>
-			<td></td>
-			<td><%= check_box_tag "topic_ids[]", t.id, false, :id => "topic_ids_#{t.id}" %><%= t.title %></td>
-		</tr>
+		
+		<% for topic in Topic.find(:all) %>
+			<tr><td><%= check_box_tag "user[topic_ids][]", topic.id, @user.topics.include?(topic) %>
+				<%= topic.title %>
+			</td></tr>
 		<% end %>
 	</table>
 	<%= submit_tag "Submit", class: "btn btn-primary" %>

@@ -13,6 +13,16 @@
 			<% if @user.isMentor == true %>
 				Mentor
 				<!--show related topics here -->
+				<p /><b>Topics Mentoring in:</b>
+				<% if @user.topics.any? %>
+					<table>
+						<% @user.topics.each do |t| %>
+						<tr><td><%=t.title %></td></tr>
+						<% end %>
+					</table>
+				<% else %>
+					N/A
+				<% end %>
 			<% else %>
 				Not a Mentor
 			<% end %>

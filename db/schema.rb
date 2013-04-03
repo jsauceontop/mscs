@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320044614) do
+ActiveRecord::Schema.define(:version => 20130403022203) do
 
   create_table "blogs", :force => true do |t|
     t.string   "content"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(:version => 20130320044614) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "topics_users", :id => false, :force => true do |t|
+    t.integer "topic_id"
+    t.integer "user_id"
+  end
+
+  add_index "topics_users", ["topic_id", "user_id"], :name => "index_topics_users_on_topic_id_and_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "firstname",       :null => false
