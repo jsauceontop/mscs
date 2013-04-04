@@ -1,0 +1,17 @@
+<% provide(:title, "Mentors") %>
+<h1>Engage a Mentor</h1>
+Engage a mentor to get help learning a new topic!
+
+<%= form_tag url_for(:controller => 'mentors', :action => 'connect'), do %>
+	<%= render 'shared/error_messages', object: @user %>
+	<table>
+		<tr>
+			<th>Choose a Mentor</th>
+			<td></td>
+		</tr>
+		<tr><td>
+			<%= select_tag "chosenMentor", options_from_collection_for_select(@mentors, "username", "username") %>
+	</table>
+	<%= submit_tag "Submit", class: "btn btn-primary" %>
+<% end %>
+

@@ -1,6 +1,7 @@
 Mscs::Application.routes.draw do
 
-
+  match '/mentors/engage', to: 'mentors#engage'
+  match '/mentors/connect', to: 'mentors#connect'
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :blogs, only: [:create, :destroy]

@@ -8,7 +8,13 @@
 				<%= @user.firstname %> 
 				<%= @user.lastname %>
 			</h1>
-			<%= @user.location %>
+			<% if !@user.location.nil? %>
+				<b>Located:</b> <%= @user.location %>
+			<% end %>
+			<p />
+			<% if !@user.relatedMentor.nil? %>
+				<b>Mentor:</b> <%= @user.relatedMentor %>
+			<% end %>
 			<br />
 			<% if @user.isMentor == true %>
 				Mentor

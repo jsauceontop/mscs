@@ -5,6 +5,24 @@ class MentorsController < ApplicationController
   	@mentors = User.where(:isMentor => true)
   end
 
+  def engage
+    @user = current_user
+    @mentors = User.where(:isMentor => true)
+  end
+
+  def connect
+    @user = current_user
+    @mentor = params[:chosenMentor]
+    @user.relatedMentor = @mentor
+    if @user.save
+      flash[:success] = "You have chosen a Mentor!"
+      redirect_to @user
+    else
+      @mentors = User.where(:isMentor => true)
+      render 'engage', :error => @user.errors
+    end
+  end
+
   def new
   	@topics = Topic.all
     @user = current_user
