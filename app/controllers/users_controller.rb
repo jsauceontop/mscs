@@ -34,8 +34,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-  	@user = User.find(params[:id])
 
+  	@user = User.find(params[:id])
+    if !current_user?(@user)
+      redirect_to root_path
+    end
   end
 
   def update
@@ -62,7 +65,7 @@ class UsersController < ApplicationController
 
   	if @user.save
   		flash[:success] = "Profile updated"
-  		sign_in @user
+  		#sign_in @user
   		redirect_to @user #root_path
   	else
   		render 'edit'

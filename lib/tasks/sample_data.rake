@@ -25,8 +25,9 @@ namespace :db do
     #create fake blogs
     users = User.all(limit: 5)
     10.times do
+      title = Faker::Lorem.words(1)
       content = Faker::Lorem.sentence(5)
-      users.each { |user| user.blogs.create!(content: content)}
+      users.each { |user| user.blogs.create!(title: title, content: content)}
     end
 
     #create fake topics

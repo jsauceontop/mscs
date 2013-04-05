@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130403022203) do
 
   create_table "blogs", :force => true do |t|
+    t.string   "title"
     t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at"
