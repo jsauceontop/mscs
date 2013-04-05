@@ -11,7 +11,13 @@
       <% if @user.isMentor %>
         <table>
           <tr><td>Location</td></tr>
-          <tr><td><%= select_tag :location, options_for_select(us_states) %> </td></tr>
+          <tr><td>
+            <% if !@user.location.nil? %>
+              <%= select_tag :location, options_for_select(us_states, @user.location) %>
+            <% else %>
+               <%= select_tag :location, options_for_select(us_states) %>
+            <% end %>
+          </td></tr>
           <tr><td>Continue to be a Mentor? No <%= radio_button_tag :isMentor, false %>  Yes <%= radio_button_tag :isMentor, true, :checked => true %></td></tr>
           <tr><td>Topics to Mentor:</td></tr>
            <% for topic in Topic.find(:all) %>

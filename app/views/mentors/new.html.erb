@@ -6,7 +6,13 @@
 	<table>
 		<tr>
 			<th>Location</th>
-			<td><%= select_tag :location, options_for_select(us_states) %> </td>
+			<td>
+			<% if !@user.location.nil? %>
+              <%= select_tag :location, options_for_select(us_states, @user.location) %>
+            <% else %>
+               <%= select_tag :location, options_for_select(us_states) %>
+            <% end %>
+			</td>
 		</tr>
 		<tr>
 			<th>Topics to Mentor</th>

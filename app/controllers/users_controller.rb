@@ -20,8 +20,13 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @mentees = []
+    User.all.each do |u|
+      if u.relatedMentor == @user.username
+        @mentees << u
+      end
+    end
   	@blogs = @user.blogs.paginate(page: params[:page])
-  	#@blogs = @user.blogs
   end
 
   def index
@@ -39,6 +44,17 @@ class UsersController < ApplicationController
     @user.update_attributes(params[:user])
     @user.location = params[:location]
     @user.isMentor = params[:isMentor]
+
+    #if user is no longer a mentor, need to update for all mentees
+    User.all.each do |u|
+      if u.relatedMentor == @user.username
+        u.relatedMentor = ""
+        u.save
+      end
+    end
+
+    #notify all mentees
+
 
     #associate the topics to the mentor
     @topics = params[:user][:topic_ids] ||= []

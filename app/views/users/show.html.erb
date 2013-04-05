@@ -8,16 +8,27 @@
 				<%= @user.firstname %> 
 				<%= @user.lastname %>
 			</h1>
+			<br />
+			<br /><b>Username: </b><%= @user.username %>
 			<% if !@user.location.nil? %>
-				<b>Located:</b> <%= @user.location %>
+			<br /><b>Located:</b> <%= @user.location %>
 			<% end %>
-			<p />
+			<br />
 			<% if !@user.relatedMentor.nil? %>
 				<b>Mentor:</b> <%= @user.relatedMentor %>
 			<% end %>
 			<br />
 			<% if @user.isMentor == true %>
-				Mentor
+				<b>Mentor to:</b>
+				<!--show mentees -->
+				<% if @mentees.any? %>
+					<% @mentees.each do |mentee| %>
+						<br /><%= mentee.username %>
+					<% end %>
+				<% else %>
+					<br />None
+				<% end %>
+
 				<!--show related topics here -->
 				<p /><b>Topics Mentoring in:</b>
 				<% if @user.topics.any? %>
@@ -45,4 +56,6 @@
 		<% end %>
 	</div>
 </div>
-<%= link_to "Edit", edit_user_path(current_user), class: "btn btn-primary" %>
+<% if @user == current_user %>
+	<%= link_to "Edit", edit_user_path(current_user), class: "btn btn-primary" %>
+<% end %>
