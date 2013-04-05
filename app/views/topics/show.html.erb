@@ -4,13 +4,17 @@
 
 
 <table>
-	<tr>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><%= @topic.description %></td>
-	</tr>
+	<tr><tb><b>Description</b></td></tr>
+	<tr><td><%= @topic.description %></td></tr>
+
+	<tr><td><b>Mentors for this topic</b></td></tr>
+	<% if @mentors.any? %>
+		<% @mentors.each do |mentor| %>
+			<tr><td><%= link_to mentor.username, "/users/#{mentor.id}" %></td></tr>
+		<% end %>
+	<% else %>
+		<tr><td>N/A</td></tr>
+	<% end %>
 </table>
 <p />
 <%= link_to "Suggest a new topic!", "/topics/new", class: "btn btn-primary" %>
-

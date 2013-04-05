@@ -23,6 +23,12 @@ class TopicsController < ApplicationController
 
   def show
   	@topic = Topic.find(params[:id])
+    @mentors = []
+    User.all.each do |user|
+      if user.topics.include?(@topic) && user.isMentor == true
+        @mentors << user
+      end
+    end
   end
 
 end
