@@ -3,6 +3,8 @@ class BlogsController < ApplicationController
 
   def index
     @blog = Blog.new
+    @user = current_user
+    @blogs = @user.blogs.all
   end
 
   def new
@@ -26,12 +28,9 @@ class BlogsController < ApplicationController
   end
 
   def update
-    #@blog = Blog.find(params[:id])
-    @blog.title = params[:title]
-    @blog.content = params[:content]
-    @blog.user_id = current_user.id
+    @blog = Blog.find(params[:id])
 
-    if @blog.save
+    if @blog.update_attributes(params[:blog])
       flash[:success] = "Post updated"
       redirect_to root_path
     else
@@ -40,6 +39,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @blog = Blog.find(params[:id])
   end
 
   def delete

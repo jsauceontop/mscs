@@ -1,2 +1,16 @@
-<h1>Blogs#show</h1>
-<p>Find me in app/views/blogs/show.html.erb</p>
+<% @page_title = "Blogs" %>
+
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1><%= @blog.title %></h1>
+			<br /><%= @blog.content %>
+		</section>
+	</aside>
+</div>
+
+<% if current_user?(@blog.user) %>
+	<%= link_to("edit", {:controller => 'blogs', :action => 'edit', :id=> @blog.id}) %>
+	/
+	<%= link_to "delete", {:controller => 'blogs', :action => 'delete', :id=> @blog.id}, data: {confirm: "You sure?"}, title: @blog.title %>
+<% end %>

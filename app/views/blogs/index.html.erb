@@ -1,18 +1,21 @@
 <% if signed_in? %>
   <div class="row">
     <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/blog_form' %>
-      </section>
+        <section><%= render 'shared/user_info' %></section>
+        <h5>New Post</h5>
+        <section><%= render 'shared/blog_form' %></section>
     </aside>
     <div class="span8">
-      <h3>Micropost Feed</h3>
-      <!-- render 'shared/feed' %>-->
+      <% if @user.blogs.any? %>
+        <h3> Blog Posts (<%= @user.blogs.count %>)</h3>
+        <ol class="blogs">
+          <%= render @blogs %>
+        </ol>
+        <!-- will_paginate @blogs %>-->
+      <% end %>
     </div>
   </div>
+
 <% else %>
   <div class="center hero-unit">
     <h1>SharePoint Mentors Blog</h1>
