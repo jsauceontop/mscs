@@ -3,6 +3,7 @@ class MentorsController < ApplicationController
 
   def index
   	@mentors = User.where(:isMentor => true)
+    @featured = @mentors.offset(rand(@mentors.count)).first
   end
 
   def engage
@@ -14,8 +15,10 @@ class MentorsController < ApplicationController
     @user = current_user
     @mentor = params[:chosenMentor]
     @user.relatedMentor = @mentor
+
     if @user.save
       flash[:success] = "You have chosen a Mentor!"
+      sign_in @user
       redirect_to @user
     else
       @mentors = User.where(:isMentor => true)

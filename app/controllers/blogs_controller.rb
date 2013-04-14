@@ -4,7 +4,11 @@ class BlogsController < ApplicationController
   def index
     @blog = Blog.new
     @user = current_user
-    @blogs = @user.blogs.all
+    if !@user.nil? #if no user is signed in
+      @blogs = @user.blogs.all
+    else
+      @blogs = nil
+    end
   end
 
   def new

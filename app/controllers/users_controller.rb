@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 
   	if @user.save
   		flash[:success] = "Profile updated"
-  		#sign_in @user
+  		sign_in @user
   		redirect_to @user #root_path
   	else
   		render 'edit'
