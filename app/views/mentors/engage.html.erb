@@ -7,7 +7,9 @@
 	<%= form_tag url_for(:controller => 'mentors', :action => 'connect'), do %>
 		<%= render 'shared/error_messages', object: @user %>
 		<b>Choose a Mentor</b>
+		<br />
 		<%= select_tag "chosenMentor", options_from_collection_for_select(@mentors, "username", "username") %>
+		<br />
 		<%= submit_tag "Submit", class: "btn btn-primary" %>
 	<% end %>
   </div>
