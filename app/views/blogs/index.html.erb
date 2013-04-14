@@ -1,11 +1,11 @@
 <% if signed_in? %>
   <div class="row">
-    <aside class="span4">
+    <aside class="span6 offset1">
         <section><%= render 'shared/user_info' %></section>
         <h5>New Post</h5>
         <section><%= render 'shared/blog_form' %></section>
     </aside>
-    <div class="span8">
+    <div class="span5">
       <% if @user.blogs.any? %>
         <h3> Blog Posts (<%= @user.blogs.count %>)</h3>
         <ol class="blogs">
@@ -21,7 +21,7 @@
     <h1>SharePoint Mentors Blog</h1>
 
     <%= link_to "Sign up now!", signup_path, 
-                                class: "btn btn-large btn-primary" %>
+                                class: "btn btn-medium btn-primary" %>
   </div>
 
 <% end %>

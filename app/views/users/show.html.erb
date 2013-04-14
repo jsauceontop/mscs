@@ -1,7 +1,7 @@
 <% provide(:title, @user.username) %>
 
 <div class="row">
-	<aside class="span4">
+	<aside class="span6 offset1">
 		<section>
 			<h1>
 				<%= gravatar_for @user %>
@@ -43,19 +43,21 @@
 			<% else %>
 				Not a Mentor
 			<% end %>
+			<br /><br />
+			<% if @user == current_user %>
+				<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %>
+			<% end %>
 		</section>
 	</aside>
-</div>
-	<div class="span8">
-		<% if @user.blogs.any? %>
-			<h3> Blog Posts (<%= @user.blogs.count %>)</h3>
-			<ol class="blogs">
-				<%= render @blogs %>
-			</ol>
-			<%= will_paginate @blogs %>
-		<% end %>
+	<div class="span4">
+	<% if @user.blogs.any? %>
+		<h3> Blog Posts (<%= @user.blogs.count %>)</h3>
+		<ol class="blogs">
+			<%= render @blogs %>
+		</ol>
+		<%= will_paginate @blogs %>
+	<% end %>
 	</div>
+  </div>
 </div>
-<% if @user == current_user %>
-	<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %>
-<% end %>
+

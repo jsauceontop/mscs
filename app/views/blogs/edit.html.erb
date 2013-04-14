@@ -2,11 +2,11 @@
 
 <h1>Edit Blog</h1>
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span4 offset2" style="width:60%">
 	<%= form_for(@blog) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 	<%= render :partial => "form", :locals => {:f => f} %>
-	<%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
+	<%= f.submit "Save Changes", class: "btn btn-medium btn-primary" %>
     <% end %>
   </div>
 </div>
