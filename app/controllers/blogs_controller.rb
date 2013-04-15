@@ -19,7 +19,7 @@ class BlogsController < ApplicationController
   	@blog = current_user.blogs.build(params[:blog])
   	if @blog.save
   		flash[:success] = "Post created!"
-  		redirect_to root_url
+  		redirect_to current_user
   	else
   		@feed_items = []
       render 'index'
@@ -36,7 +36,7 @@ class BlogsController < ApplicationController
 
     if @blog.update_attributes(params[:blog])
       flash[:success] = "Post updated"
-      redirect_to root_path
+      redirect_to current_user
     else
       render 'edit'
     end
@@ -50,7 +50,7 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     @blog.destroy
     flash[:success] = "Post deleted!"
-    redirect_to root_url
+    redirect_to current_user
   end
 
   private
