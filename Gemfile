@@ -41,5 +41,5 @@ group :test do
 end
 
 group :production do
-	gem 'pg'
+	gem 'pg' #use PostgreSQL in production (heroku)
 end
