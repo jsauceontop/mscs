@@ -4,7 +4,20 @@
   <h1>Admin Page</h1>
   <div class="row">
 	  <div class="span8 offset2">
-	  	
+		<b>Topic Suggestions that need Approval:</b><br />
+		<% if @topics.any? %>
+		  	<%= form_tag({:controller=> "topics", :action => "approve"}) do %>
+			  	<% for t in @topics %>
+		            <%= check_box_tag "topic_ids[]", t.id, checked=false %>
+		               <%= t.title %>
+		            <br />
+		        <% end %>
+	        <br />
+	        <%= submit_tag "Approve", class: "btn btn-primary btn-medium" %>
+        	<% end %>
+        <% else %>
+        No topics to approve
+        <% end %>
 	  </div>
   </div>
 <% else %>

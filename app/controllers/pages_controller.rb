@@ -18,6 +18,7 @@ class PagesController < ApplicationController
 
   def admin
     @user = current_user
+    @topics = Topic.where(:isApproved => false).order("topics.title ASC")
   end
 
 end

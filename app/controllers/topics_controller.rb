@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
   before_filter :signed_in_user, only: [:new, :edit, :update, :destroy]
   def index
-  	@topics = Topic.order("topics.title ASC")
+  	@topics = Topic.where(:isApproved => true).order("topics.title ASC")
   end
 
   def edit
@@ -13,6 +13,7 @@ class TopicsController < ApplicationController
 
   def create
   	@topic = Topic.new(params[:topic])
+    @topic.isApproved = false
   	if @topic.save
       flash[:success] = "Topic Suggested!"
       #email?
@@ -30,6 +31,15 @@ class TopicsController < ApplicationController
         @mentors << user
       end
     end
+  end
+
+  def approve
+    @topics_ids = params[:topic_ids] ||= []
+    @topics_ids.each do |t_id|
+      t = Topic.find_by_id(t_id)
+      t.update_attributes!(:isApproved => true)
+    end
+    redirect_to(:action => "index")
   end
 
 end
