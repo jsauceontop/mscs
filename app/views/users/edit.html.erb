@@ -18,15 +18,20 @@
                <%= select_tag :location, options_for_select(us_states) %>
             <% end %>
           </td></tr>
-          <tr><td>Continue to be a Mentor? No <%= radio_button_tag :isMentor, false %>  Yes <%= radio_button_tag :isMentor, true, :checked => true %></td></tr>
-          <tr><td>Topics to Mentor:</td></tr>
-           <% for topic in Topic.find(:all) %>
-            <tr><td><%= check_box_tag "user[topic_ids][]", topic.id, @user.topics.include?(topic) %>
-               <%= topic.title %>
-            </td></tr>
-          <% end %>
         </table>
+        <br />
+        Continue to be a Mentor? No <%= radio_button_tag :isMentor, false %>  Yes <%= radio_button_tag :isMentor, true, :checked => true %>
+        <br /><br />
+         Topics to Mentor:
+         <br />
+           <% for topic in Topic.find(:all) %>
+            <%= check_box_tag "user[topic_ids][]", topic.id, @user.topics.include?(topic) %>
+               <%= topic.title %>
+            <br />
+          <% end %>
+        
       <% end %>
+      <br />
       <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
     <% end %>
 

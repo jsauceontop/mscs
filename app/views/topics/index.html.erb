@@ -2,26 +2,32 @@
 <h1>Topics</h1>
 
 <div class="row-fluid">
-	<div class="span6 topicContent">
-		<h2 style="color:black">Learn About a New Topic</h2>
-		<% if @topics.any? %>
-			<table>
-				<% @topics.each do |topic| %>
-				<tr>
-					<td><%= link_to(topic.title, {:action => 'show', :id => topic.id}) %></td>
-				</tr>
+	<ul class="thumbnails">
+		<li class="span6">
+			<div class="thumbnail">
+				<h3>Learn About a New Topic</h3>
+				<% if @topics.any? %>
+					<table>
+						<% @topics.each do |topic| %>
+						<tr>
+							<td><%= link_to(topic.title, {:action => 'show', :id => topic.id}) %></td>
+						</tr>
+						<% end %>
+					</table>
+				<% else %>
+					N/A
 				<% end %>
-			</table>
-		<% else %>
-			N/A
-		<% end %>
-	</div>
-	<div class="span6 topicContent">
-		<h2 style="margin:5px; color:black">Suggest a Topic</h2>
-		<div style="text-align:center">
-			Suggest a new topic to learn or mentor
-			<br /><br />
-			<%= link_to "Suggest a new topic!", "/topics/new", class: "btn btn-primary" %>
-		</div>
-	</div>
+			</div>
+		</li>
+		<li class="span6">
+			<div class="thumbnail">
+				<h3>Suggest a Topic</h3>
+				Suggest a new topic to learn or mentor
+				<br /><br />
+				<div style="text-align:center">
+					<%= link_to "Suggest a new topic!", "/topics/new", class: "btn btn-primary" %>
+				</div>
+			</div>
+		</li>
+	</ul>
 </div>

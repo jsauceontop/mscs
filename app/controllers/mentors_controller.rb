@@ -17,6 +17,7 @@ class MentorsController < ApplicationController
     @user.relatedMentor = @mentor
 
     if @user.save
+      UserMailer.mentee_alert(@mentor, @user).deliver
       flash[:success] = "You have chosen a Mentor!"
       sign_in @user
       redirect_to @user
