@@ -36,7 +36,8 @@ namespace :db do
       description = Faker::Lorem.sentence(1)
       topic = Topic.create!(
         title: title,
-        description: description)
+        description: description,
+        isApproved: true)
     end
 
   end
