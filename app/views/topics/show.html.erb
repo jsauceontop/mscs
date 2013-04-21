@@ -11,7 +11,7 @@
 	<table style="padding-left:5px">
 		<% if @mentors.any? %>
 			<% @mentors.each do |mentor| %>
-				<tr><td><%= link_to mentor.username, "/users/#{mentor.id}" %>, <%= mentor.loaction %></td></tr>
+				<tr><td><%= link_to mentor.username, "/users/#{mentor.id}" %>, <%= mentor.location %></td></tr>
 			<% end %>
 		<% else %>
 			<tr><td>N/A</td></tr>

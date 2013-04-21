@@ -10,4 +10,7 @@ class UserMailer < ActionMailer::Base
 		@user = user
 		mail(:to => "#{mentor.username} <#{mentor.email}>", :subject => "SharePoint Mentors: New Mentee!")
 	end
+
+	def topic_alert()
+	end
 end
