@@ -10,6 +10,7 @@
 			</h1>
 			<br />
 			<br /><b>Username: </b><%= @user.username %>
+			<br /><b>Email: </b><%= @user.email %>
 			<% if !@user.location.nil? %>
 			<br /><b>Located:</b> <%= @user.location %>
 			<% end %>
@@ -30,7 +31,8 @@
 				<% end %>
 
 				<!--show related topics here -->
-				<p /><b>Topics Mentoring in:</b>
+				<br /><br />
+				<b>Topics Mentoring in:</b>
 				<% if @user.topics.any? %>
 					<table>
 						<% @user.topics.each do |t| %>

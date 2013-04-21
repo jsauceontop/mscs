@@ -42,6 +42,7 @@ class MentorsController < ApplicationController
 
   	if @user.save
   		flash[:success] = "You're now a mentor!"
+      sign_in @user
   		redirect_to @user
   	else
       @topics = Topic.all
