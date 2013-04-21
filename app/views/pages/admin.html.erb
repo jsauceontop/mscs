@@ -1,0 +1,15 @@
+<% @page_title = "Admin Page" %>
+
+<% if signed_in? %>
+  <h1>Admin Page</h1>
+  <div class="row">
+	  <div class="span8 offset2">
+	  	
+	  </div>
+  </div>
+<% else %>
+	<!--redirect to home page -->
+	<script type="text/javascript">
+		window.location.href="/"
+	</script>
+<% end %>

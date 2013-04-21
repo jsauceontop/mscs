@@ -13,6 +13,7 @@ Mscs::Application.routes.draw do
   match '/about', to: 'pages#about'
   match '/contact', to: 'pages#contact'
   match '/faqs', to: 'pages#faqs'
+  match '/admin', to: 'pages#admin'
 
   match '/signup', to: 'users#new'
   match '/signin', to: "sessions#new"

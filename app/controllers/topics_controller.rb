@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_filter :signed_in_user, only: [:new, :edit, :update, :destroy]
   def index
   	@topics = Topic.order("topics.title ASC")
   end

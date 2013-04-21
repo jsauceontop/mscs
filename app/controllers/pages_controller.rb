@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def home
   	if signed_in?
 	  	@blog = current_user.blogs.build
@@ -10,6 +11,13 @@ class PagesController < ApplicationController
   end
 
   def contact
+  end
+
+  def faqs
+  end
+
+  def admin
+    @user = current_user
   end
 
 end
