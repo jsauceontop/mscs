@@ -1,6 +1,7 @@
 <% provide(:title, "Mentors") %>
-<div class="hero-unit">
-	<% if @featured != nil %>
+
+<% if @featured != nil %>
+	<div class="hero-unit">	
 		<h2 class="mentorFeatured">Featured Mentor: <%= @featured.username %></h2>
 		<p />
 		Topics: 
@@ -11,10 +12,11 @@
 		<% else %>
 			N/A
 		<% end %>
-	<% end %>
-	<p />
-	<%= link_to "Choose a Mentor!", "/mentors/engage", class: "btn btn-primary btn-medium" %>
-</div>
+		<p />
+		<%= link_to "Choose a Mentor!", "/mentors/engage", class: "btn btn-primary btn-medium" %>
+	</div>	
+<% end %>
+
 
 <div class="row-fluid">
 	<ul class="thumbnails">
@@ -35,7 +37,9 @@
 						</tr>
 						<% end %>
 					</table>
-			<% end %>
+				<% else %>
+					N/A
+				<% end %>
 			</div>
 		</li>
 		<li class="span6">
