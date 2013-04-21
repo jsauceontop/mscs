@@ -15,7 +15,7 @@ class MentorsController < ApplicationController
     @user = current_user
     @mentor_name = params[:chosenMentor]
     @user.relatedMentor = @mentor_name
-    @mentor = User.find(:username => @mentor_name)
+    @mentor = User.where(:username => @mentor_name)
 
     if @user.save
       UserMailer.mentee_alert(@mentor, @user).deliver
