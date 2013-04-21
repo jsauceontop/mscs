@@ -11,9 +11,13 @@
        <%= select_tag :location, options_for_select(us_states) %>
     <% end %>
 	<b>Topics to Mentor</b><br />
-	<% for topic in Topic.find(:all) %>
-		<%= check_box_tag "user[topic_ids][]", topic.id, @user.topics.include?(topic) %>
-			<%= topic.title %><br />
+	<% if Topic.any? %>
+		<% for topic in Topic.find(:all) %>
+			<%= check_box_tag "user[topic_ids][]", topic.id, @user.topics.include?(topic) %>
+				<%= topic.title %><br />
+		<% end %>
+	<% else %>
+		There are no topics. <%= link_to "Suggest a new topic!", "/topics/new" %>
 	<% end %>
 	<br />
 	<%= submit_tag "Submit", class: "btn btn-primary btn-medium" %>
