@@ -42,4 +42,13 @@ class TopicsController < ApplicationController
     redirect_to(:action => "index")
   end
 
+  def destroy
+    if Topic.find(params[:id]).destroy
+      flash[:success] = "Topic deleted"
+      redirect_to "/admin"
+    else
+      render '/admin'
+    end
+  end
+
 end
