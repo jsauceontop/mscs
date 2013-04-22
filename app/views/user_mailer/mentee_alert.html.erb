@@ -2,4 +2,11 @@
 
 <p>You have a new SharePoint mentee: <%= @user.username %>!</p>
 
+<p>This is their information:
+	<br />Name: <%= @user.firstname %> <%= @user.lastname %>
+	<br /><%= @user.email %>
+
 <p>Check out it out on <%= link_to "SharePoint Mentors!", root_url %>
+
+<p />Thanks,
+<br />SharePoint Mentors team

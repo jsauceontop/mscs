@@ -49,16 +49,17 @@ class UsersController < ApplicationController
     @user.location = params[:location]
     @user.isMentor = params[:isMentor]
 
-    #if user is no longer a mentor, need to update for all mentees
-    User.all.each do |u|
-      if u.relatedMentor == @user.username
-        u.relatedMentor = ""
-        u.save
+    #if user is no longer a mentor, need to update all mentees
+    if @user.isMentor ==false
+      User.all.each do |u|
+        if u.relatedMentor == @user.username
+          u.relatedMentor = ""
+          u.save
+          #notify all mentees
+          UserMailer.nomentor_alert(u).deliver
+        end
       end
     end
-
-    #notify all mentees
-
 
     #associate the topics to the mentor
     @topics = params[:user][:topic_ids] ||= []
@@ -74,7 +75,20 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if User.find(params[:id]).destroy
+    @user = User.find(params[:id])
+    #if user is a mentor, need to update all mentees
+    if @user.isMentor == true
+      User.all.each do |u|
+        if u.relatedMentor == @user.username
+          u.relatedMentor = ""
+          u.save
+          #notify all mentees
+          UserMailer.nomentor_alert(u).deliver
+        end
+      end
+    end
+
+    if @user.destroy
     	flash[:success] = "Account destroyed"
     	redirect_to root_path
     else
