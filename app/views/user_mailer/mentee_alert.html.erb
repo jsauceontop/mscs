@@ -1,10 +1,13 @@
 <p>Hi <%= @mentor.username %>,</p>
 
-<p>You have a new SharePoint mentee: <%= @user.username %>!</p>
+<p>You have a new SharePoint mentee:</p>
 
-<p>This is their information:
-	<br />Name: <%= @user.firstname %> <%= @user.lastname %>
-	<br /><%= @user.email %>
+<p><b>This is their information:</b>
+<br />Name: <%= @user.firstname %> <%= @user.lastname %>
+<br />Username: <%= @user.username %>
+<br />Email: <%= @user.email %></p>
+
+<p>Now that you have a mentee, you should email them to set up arrangments for mentorship.</p>
 
 <p>Check out it out on <%= link_to "SharePoint Mentors!", root_url %>
 

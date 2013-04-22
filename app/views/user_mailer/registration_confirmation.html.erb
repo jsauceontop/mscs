@@ -1,8 +1,13 @@
-<p><%= @user.username %>,</p>
+<p>Hi <%= @user.username %>,</p>
 
 <p>Thank you for registering!</p>
 
-<p><%= link_to "Visit us again soon!", root_url %>
+<p>Name: <%= @user.firstname %> <%=@user.lastname %>
+<br />Email: <%= @user.email %>
+<br />Username: <%= @user.username %>
+</p>
+
+<p>Visit us again soon at <%= link_to "SharePoint Mentors", root_url %>!
 
 <p />Thanks,
 <br />SharePoint Mentors team
