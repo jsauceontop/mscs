@@ -20,11 +20,11 @@
           </td></tr>
         </table>
         <br />
-        Continue to be a Mentor? No <%= radio_button_tag :isMentor, false %>  Yes <%= radio_button_tag :isMentor, true, :checked => true %>
+        Continue to be a Mentor?     No <%= radio_button_tag :isMentor, false %>  Yes <%= radio_button_tag :isMentor, true, :checked => true %>
         <br /><br />
          Topics to Mentor:
          <br />
-           <% for topic in Topic.find(:all) %>
+           <% for topic in @topics %>
             <%= check_box_tag "user[topic_ids][]", topic.id, @user.topics.include?(topic) %>
                <%= topic.title %>
             <br />

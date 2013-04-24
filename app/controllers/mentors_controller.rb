@@ -2,8 +2,9 @@ class MentorsController < ApplicationController
   before_filter :signed_in_user
 
   def index
-  	@mentors = User.where(:isMentor => true)
+  	@mentors = User.where(:isMentor => true).order("users.location ASC")
     @featured = @mentors.offset(rand(@mentors.count)).first
+
   end
 
   def engage

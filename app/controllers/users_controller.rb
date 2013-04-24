@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    @topics = Topic.where(:isApproved => true).order("topics.title ASC")
   	@user = User.find(params[:id])
     if !current_user?(@user)
       redirect_to root_path
